@@ -174,20 +174,55 @@
             margin: 3rem 0;
         }
         
-        .week-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        .progress-path {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             gap: 1rem;
             margin: 2rem 0;
+            padding: 2rem;
         }
         
         .week-item {
             background: #ff9900;
             color: white;
-            padding: 1rem;
+            padding: 0.8rem 1.2rem;
             text-align: center;
             border-radius: 8px;
             font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 80px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .week-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .progress-arrow {
+            font-size: 1.5rem;
+            color: #ccc;
+            margin: 0 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .progress-path {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+            
+            .progress-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .week-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
         }
         
         .workshops {
@@ -257,6 +292,7 @@
             text-decoration: underline;
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -297,20 +333,32 @@
             </div>
             
             <div class="weeks-overview">
-                <div class="week-grid">
-                    <div class="week-item">Week 1</div>
-                    <div class="week-item">Week 2</div>
-                    <div class="week-item">Week 3</div>
-                    <div class="week-item">Week 4</div>
-                    <div class="week-item">Week 5</div>
-                    <div class="week-item">Week 6</div>
-                    <div class="week-item">Week 7</div>
-                    <div class="week-item">Week 8</div>
-                    <div class="week-item">Week 9</div>
-                    <div class="week-item">Week 10</div>
-                    <div class="week-item">Week 11</div>
-                    <div class="week-item">Week 12</div>
-                    <div class="week-item">Week 13</div>
+                <div class="progress-path">
+                    <div class="week-item">Core</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">IAM</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Networking</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Storage</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Databases</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">IaC</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Containers</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Serverless</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Events</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Analytics</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Monitoring</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">MCP</div>
+                    <div class="progress-arrow">→</div>
+                    <div class="week-item">Agentic</div>
                 </div>
             </div>
             
