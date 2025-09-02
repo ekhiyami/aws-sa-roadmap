@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Skills - AWS Solutions Architect Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+        
+        header {
+            background: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            header {
+                padding: 2rem 0;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        @media (min-width: 768px) {
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .back-nav {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        @media (min-width: 768px) {
+            .back-nav {
+                padding: 1rem 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .back-nav a {
+            color: #ff9900;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        @media (min-width: 768px) {
+            .content {
+                padding: 3rem;
+            }
+        }
+        
+        .intro-section {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+        
+        .intro-section h2 {
+            color: #232f3e;
+            margin-bottom: 1rem;
+        }
+        
+        .challenge-description {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #ff9900;
+        }
+        
+        .skills-categories {
+            margin: 3rem 0;
+        }
+        
+        .category {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #ff9900;
+        }
+        
+        .category h3 {
+            color: #ff9900;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skill-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .skill-header {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .skill-header:hover {
+            background: #e9ecef;
+        }
+        
+        .skill-header h4 {
+            color: #232f3e;
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            color: #ff9900;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .expand-icon.expanded {
+            transform: rotate(90deg);
+        }
+        
+        .skill-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            display: none;
+        }
+        
+        .skill-content.expanded {
+            display: block;
+        }
+        
+        .skill-content h5 {
+            color: #ff9900;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .skill-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .skill-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .sources {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid #28a745;
+            margin-top: 1rem;
+        }
+        
+        .sources h5 {
+            color: #155724;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sources ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .sources li {
+            margin-bottom: 0.3rem;
+            color: #155724;
+        }
+        
+        .closing-message {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #232f3e;
+            color: white;
+            border-radius: 12px;
+        }
+        
+        .closing-message a {
+            color: #ff9900;
+            text-decoration: none;
+        }
+        
+        .closing-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Soft Skills</h1>
+        <p class="subtitle">Essential personal skills for AWS Solutions Architects</p>
+    </header>
+
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html">← Back to Roadmap</a>
+        </div>
+        
+        <div class="content">
+            <div class="intro-section">
+                <h2>Personal Skills for AWS Solutions Architects</h2>
+                
+                <div class="challenge-description">
+                    <p>Technical expertise alone isn't enough to excel as a Solutions Architect. These <strong>personal skills</strong> are equally important for success in the role. They enable you to <strong>communicate effectively</strong>, <strong>manage complex projects</strong>, <strong>build relationships</strong>, and <strong>continuously grow</strong> in your career. Each skill includes practical guidance on why it matters, how to improve, and recommended resources.</p>
+                </div>
+            </div>
+            
+            <div class="skills-categories">
+                <div class="category">
+                    <h3>Analysis and Design</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Analytic and Design Skills</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Analytic and design skills refer to the ability to analyze complex business requirements and design solutions that meet those requirements. This involves breaking down a problem into its constituent parts, identifying key requirements, constraints, and risks, and designing a solution that meets those requirements while taking into account the larger organizational context.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Analytic and design skills are important for solution architects because they help ensure that the solutions they design effectively meet business requirements and are technically feasible, scalable, and maintainable.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Stay up to date with technology</strong>: Solution architects must stay current with emerging technologies and industry best practices. Attend conferences, read industry publications, and participate in online communities to stay informed.</li>
+                                <li><strong>Work on real-world projects</strong>: Practice is key to improving analytic and design skills. Work on real-world projects and seek feedback from colleagues and stakeholders.</li>
+                                <li><strong>Learn from others</strong>: Collaborate with other solution architects and domain experts to learn from their experiences and perspectives.</li>
+                                <li><strong>Practice critical thinking</strong>: Analytic and design skills require critical thinking, which involves asking questions, challenging assumptions, and evaluating evidence.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>The Engineering Design of Systems: Models and Methods, by Dennis M. Buedу</li>
+                                    <li>Object-Oriented Analysis and Design with Applications, by Grady Booch, Robert A. Maksimchuk, Michael W. Engle</li>
+                                    <li>Head First Object-Oriented Analysis and Design: A Brain Friendly Guide, by Brett McLaughlin, Gary Pollice, David West</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Design Patterns</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Architecture design patterns are high-level design patterns that provide solutions to common architectural problems. These patterns can be used to design software systems that are scalable, reliable, and maintainable.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Knowledge of design patterns is important for reusability, scalability, flexibility, best practices, and communication. Solution architecture design patterns provide a set of reusable solutions to common architectural problems.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Study</strong>: Start by reading books, articles, and blogs on architecture design patterns.</li>
+                                <li><strong>Practice</strong>: Look for opportunities to apply architecture design patterns in your work.</li>
+                                <li><strong>Collaborate</strong>: Join online communities, attend meetups, and participate in forums where you can collaborate with other architects.</li>
+                                <li><strong>Experiment</strong>: Experiment with different architecture design patterns to find out what works best for you and your projects.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Patterns of Enterprise Application Architecture" by Martin Fowler</li>
+                                    <li>"Building Microservices" by Sam Newman</li>
+                                    <li>"Domain-Driven Design: Tackling Complexity in the Heart of Software" by Eric Evans</li>
+                                    <li>AWS Well-Architected Framework</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Communication</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Conflict Management</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Conflict management is the process of handling and resolving conflicts or disagreements between two or more parties. It involves identifying the root cause of the conflict, finding a mutually acceptable solution, and implementing a plan to resolve the issue.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Effective conflict management is crucial for a solution architect to collaborate effectively, make informed decisions, encourage innovation, and maintain productivity.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Active listening</strong>: Listen attentively to the other person's perspective, without interrupting or judging.</li>
+                                <li><strong>Empathy</strong>: Put yourself in the other person's shoes and try to see the situation from their point of view.</li>
+                                <li><strong>Communication skills</strong>: Express yourself clearly and respectfully, using "I" statements instead of "you" statements.</li>
+                                <li><strong>Problem-solving skills</strong>: Identify the root cause of the conflict, brainstorm possible solutions, and evaluate the pros and cons of each option.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Influence: The Psychology of Persuasion", by Cialdini PhD, Robert B.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Explanation Skills</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Explanation skills refer to the ability to convey information or ideas in a clear and understandable manner. It involves breaking down complex concepts into simpler terms, using appropriate examples, and organizing information logically.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Explanation skills are critical for solution architects to effectively communicate technical concepts, build consensus, mitigate risk, and enhance their credibility.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Know your audience</strong>: Consider the level of technical knowledge of your audience, their needs and interests.</li>
+                                <li><strong>Simplify complex concepts</strong>: Break down complex technical concepts into smaller, more manageable pieces.</li>
+                                <li><strong>Use visuals</strong>: Visual aids such as diagrams, charts, and graphs can help simplify complex information.</li>
+                                <li><strong>Practice active listening</strong>: Pay attention to your audience's questions and feedback.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Made to Stick: Why Some Ideas Survive and Others Die" by Chip Heath and Dan Heath</li>
+                                    <li>"The Art of Explanation: Making Your Ideas, Products, and Services Easier to Understand" by Lee LeFever</li>
+                                    <li>"Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds" by Carmine Gallo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Negotiations</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Negotiation skills refer to the ability to communicate effectively to reach an agreement or compromise with another party. Effective negotiation skills involve preparation, active listening, communication, problem-solving, flexibility, and assertiveness.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Negotiation skills are important for solution architects because they are often required to negotiate with various stakeholders, including clients, team members, vendors, and other stakeholders involved in a project.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Practice</strong>: You can practice negotiating in various situations, such as with family members, friends, or colleagues.</li>
+                                <li><strong>Prepare</strong>: Before a negotiation, take the time to research the other party's position, interests, and priorities.</li>
+                                <li><strong>Listen actively</strong>: Listen carefully to the other party's concerns and interests, and try to understand their perspective.</li>
+                                <li><strong>Be creative</strong>: Be willing to think outside the box and explore alternative solutions.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Getting to Yes: Negotiating Agreement Without Giving In" by Roger Fisher and William Ury</li>
+                                    <li>"Never Split the Difference: Negotiating As If Your Life Depended On It" by Chris Voss</li>
+                                    <li>"The Art of Negotiation" by Michael Wheeler</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Networking</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Networking for a solution architect involves building relationships with individuals and organizations in the technology industry in order to expand your professional network and create opportunities for business and career growth.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Build a strong online presence</strong>: Create a professional website or blog where you can showcase your expertise.</li>
+                                <li><strong>Attend industry events</strong>: Attend industry events such as conferences and meetups to connect with other professionals.</li>
+                                <li><strong>Build a portfolio of work</strong>: Build a portfolio of your work that showcases your skills and expertise.</li>
+                                <li><strong>Publish articles and whitepapers</strong>: Share your insights and knowledge with others through publications.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Stakeholders Management</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Stakeholder management is the ability to effectively identify, understand, and engage with individuals or groups who have an interest or stake in a particular project or initiative.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Stakeholder management is crucial for a solution architect because it helps them understand stakeholder needs, build trust and credibility, mitigate risk, facilitate communication and collaboration, and maximize project outcomes.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Identify stakeholders</strong>: Make a list of stakeholders and their roles, interests, and concerns.</li>
+                                <li><strong>Prioritize stakeholders</strong>: Prioritize stakeholders based on their level of importance and influence on the project.</li>
+                                <li><strong>Engage with stakeholders</strong>: Engage with stakeholders regularly to understand their needs and expectations.</li>
+                                <li><strong>Communicate effectively</strong>: Use clear and concise language to avoid misunderstandings.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Antipatterns: Managing Software Organizations and People", by Colin J. Neill, Philip A. Laplante, Joanna F. DeFranco</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Mind</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Abstract Mind</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Abstract thinking is a cognitive process involving the ability to understand concepts and ideas that are not tied to specific, concrete examples or experiences. It allows individuals to think beyond the present moment and imagine new possibilities.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Abstract thinking is important for a solution architect because it allows them to understand complex problems and develop innovative solutions, enhance creativity, improve planning, and facilitate communication.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Read widely</strong>: Reading books and articles on a wide range of topics can help you develop your abstract thinking abilities.</li>
+                                <li><strong>Play games and puzzles</strong>: Games like chess, Sudoku, and crossword puzzles require you to think abstractly.</li>
+                                <li><strong>Brainstorm</strong>: Generate as many ideas as possible without judging them.</li>
+                                <li><strong>Use analogies</strong>: Make connections between seemingly unrelated ideas or concepts.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Thinking, Fast and Slow" by Daniel Kahneman</li>
+                                    <li>"Lateral Thinking: Creativity Step by Step" by Edward de Bono</li>
+                                    <li>"The Art of Possibility: Transforming Professional and Personal Life" by Rosamund Stone Zander and Benjamin Zander</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Decision Making</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Decision-making skills refer to the ability to analyze information, weigh options, and choose a course of action that is most appropriate to achieve a desired outcome.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Decision-making skills are important for solution architects because they are responsible for making critical decisions that can impact the success of a project or an organization.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Gather Information</strong>: Make sure you have all the relevant information before making a decision.</li>
+                                <li><strong>Analyze and Evaluate Options</strong>: Weigh the pros and cons of different options and consider the potential consequences.</li>
+                                <li><strong>Consider Alternatives</strong>: Be open to considering alternatives and be willing to change course if new information becomes available.</li>
+                                <li><strong>Practice Decision-Making</strong>: Practice making decisions in low-stakes situations.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Thinking, Fast and Slow" by Daniel Kahneman</li>
+                                    <li>"Decisive: How to Make Better Choices in Life and Work" by Chip Heath and Dan Heath</li>
+                                    <li>"The Art of Thinking Clearly" by Rolf Dobelli</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Stress Resistance</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Stress resistance is the ability to cope with stress and pressure, whether it's related to work, relationships, or other aspects of life. It involves maintaining your mental and physical health in the face of adversity.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Stress resistance is essential for Solution Architects because their role involves managing complex projects and dealing with a range of stakeholders. They must be able to navigate challenges and setbacks without becoming overwhelmed or burned out.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Exercise regularly</strong>: Regular exercise can help you manage stress by reducing tension and anxiety.</li>
+                                <li><strong>Practice relaxation techniques</strong>: Meditation, deep breathing, and yoga are all effective relaxation techniques.</li>
+                                <li><strong>Get enough sleep</strong>: Aim for 7-9 hours of sleep per night to improve your stress resistance.</li>
+                                <li><strong>Develop a support network</strong>: Having a support network can help you manage stress by providing emotional support.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"The Stress-Proof Brain: Master Your Emotional Response to Stress Using Mindfulness and Neuroplasticity" by Melanie Greenberg</li>
+                                    <li>"The Resilience Factor: 7 Keys to Finding Your Inner Strength and Overcoming Life's Hurdles" by Karen Reivich and Andrew Shatte</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Tactical and Strategic Mind</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>A tactical mind is focused on the immediate and short-term actions required to achieve a specific goal. A strategic mind is focused on the big picture and the long-term goals and objectives of an organization.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Both tactical and strategic thinking are important for solution architects. They need to think tactically to deliver practical solutions that meet immediate needs, while also thinking strategically to ensure solutions align with long-term organizational goals.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Read widely</strong>: Reading a variety of materials can help broaden your perspective and improve your understanding of different situations.</li>
+                                <li><strong>Develop your analytical skills</strong>: Practice critical thinking, problem-solving, and decision-making exercises.</li>
+                                <li><strong>Build your knowledge base</strong>: Take courses, attend workshops and conferences in relevant fields.</li>
+                                <li><strong>Develop a long-term perspective</strong>: Consider how decisions and actions today will impact the organization in the future.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Good Strategy/Bad Strategy" by Richard Rumelt</li>
+                                    <li>"The Art of War" by Sun Tzu</li>
+                                    <li>"Competitive Strategy" by Michael E. Porter</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Presentation Skills</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Public Speaking</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Public speaking is the act of delivering a speech or presentation to a live audience. It involves using verbal and nonverbal communication skills to convey a message or idea to a group of people.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Public speaking can be an important skill for a solution architect for communicating complex ideas, building trust and credibility, managing stakeholder expectations, and winning support and buy-in for solutions.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Practice, practice, practice</strong>: Look for opportunities to speak in front of others, such as giving presentations at work or joining a local Toastmasters group.</li>
+                                <li><strong>Prepare thoroughly</strong>: Make sure you know your material inside and out, and rehearse your presentation several times.</li>
+                                <li><strong>Focus on your body language</strong>: Maintain good eye contact, use confident and open body language.</li>
+                                <li><strong>Learn from others</strong>: Study great public speakers and try to emulate their style and techniques.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds, by Carmine Gallo</li>
+                                    <li>TED Talks: The Official TED Guide to Public Speaking, by Chris Anderson</li>
+                                    <li>The Art of Public Speaking, by Dale Carnegie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>White-boarding Skills</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Whiteboarding skills refer to the ability of a solution architect to visually represent complex technical concepts and solutions on a whiteboard or similar surface during a meeting or discussion with stakeholders.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Whiteboarding skills are important for clarifying complex ideas, collaborating with stakeholders, iterating on solutions, and improving communication between the solution architect and stakeholders.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Practice, practice, practice</strong>: Look for opportunities to practice your whiteboarding skills by working through technical problems with colleagues.</li>
+                                <li><strong>Plan ahead</strong>: Think about the key ideas and concepts you want to convey, and how you can best represent them visually.</li>
+                                <li><strong>Use simple, clear visuals</strong>: Use clear and concise labels and symbols, and avoid cluttering the whiteboard.</li>
+                                <li><strong>Engage with stakeholders</strong>: Encourage them to ask questions, provide feedback, and offer their own ideas.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"The Back of the Napkin" by Dan Roam</li>
+                                    <li>"The Sketchnote Handbook" by Mike Rohde</li>
+                                    <li>"Visual Thinking: Empowering People and Organizations through Visual Collaboration" by Willemien Brand</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Programming</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Quick POCs</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>It is important for a solution architect to make quick proof of concepts for several reasons: validate ideas, identify potential issues, communicate ideas, and reduce risk.</p>
+                            
+                            <p>By quickly prototyping and testing ideas, a solution architect can reduce the risk of delays, budget overruns, and other issues that may arise during implementation. This can help ensure that the project stays on track and delivers value to the business.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Strong Technical Skills</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>While it is not always necessary for a solution architect to be hands-on with programming, there are several benefits to having programming experience: better understanding of the system, more effective collaboration with development teams, improved problem-solving skills, ability to prototype and experiment, and better understanding of technology trends.</p>
+                            
+                            <p>Overall, while programming experience is not always required for a solution architect, it can provide several benefits and help improve their effectiveness in the role.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Relation Management</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Emotional Intelligence</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Emotional Intelligence (EQ) is the ability to recognize, understand, and manage one's own emotions, as well as the emotions of others. It involves the ability to use emotions to guide thought and behavior, to manage and regulate one's own emotions, and to recognize and respond appropriately to the emotions of others.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>EI is important for effective communication, better decision-making, leadership, mental health, and success in various areas of life, including academic and professional success.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Practice self-awareness</strong>: Pay attention to your emotions and how they affect your thoughts and behavior.</li>
+                                <li><strong>Practice self-regulation</strong>: Work on regulating your emotions and avoiding impulsive behavior.</li>
+                                <li><strong>Develop empathy</strong>: Practice putting yourself in other people's shoes and trying to see things from their perspective.</li>
+                                <li><strong>Improve communication skills</strong>: Practice active listening, use "I" statements instead of "you" statements.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Emotional Intelligence 2.0" by Travis Bradberry and Jean Greaves</li>
+                                    <li>"Primal Leadership: Realizing the Power of Emotional Intelligence" by Daniel Goleman, Richard Boyatzis, and Annie McKee</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Empathy</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Empathy is the ability to understand and share the feelings of others. It involves being able to put yourself in someone else's shoes, see things from their perspective, and understand how they are feeling.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Empathy is an important skill for a Solution Architect for understanding client needs, effective communication, building trust, and resolving conflicts.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Practice active listening</strong>: Give your full attention to the person speaking and try to understand their perspective.</li>
+                                <li><strong>Learn to recognize emotions</strong>: Pay attention to facial expressions, body language, and tone of voice.</li>
+                                <li><strong>Practice perspective-taking</strong>: Try to see things from the other person's perspective.</li>
+                                <li><strong>Practice compassion</strong>: Show kindness and understanding towards others.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Empathy: Why It Matters, and How to Get It" by Roman Krznaric</li>
+                                    <li>"The Art of Empathy: A Complete Guide to Life's Most Essential Skill" by Karla McLaren</li>
+                                    <li>"Nonviolent Communication: A Language of Life" by Marshall B. Rosenberg</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Self Development</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Ability to Quick Learn New Things</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>The ability to learn new things is the capacity of an individual to acquire new knowledge, skills, and behaviors. It involves the ability to perceive, understand, and retain new information, and to apply it in relevant contexts.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>The ability to learn new things is particularly important for a solution architect because this role involves designing and implementing complex technology solutions that often require expertise in multiple domains.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Embrace a growth mindset</strong>: Believe that your abilities can be developed through hard work and dedication.</li>
+                                <li><strong>Practice deliberate learning</strong>: Set goals, actively seek out new information, and reflect on what you have learned.</li>
+                                <li><strong>Seek out diverse experiences</strong>: Expose yourself to a variety of experiences to broaden your knowledge and perspective.</li>
+                                <li><strong>Use spaced repetition</strong>: Review information at increasing intervals over time.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Make It Stick: The Science of Successful Learning" by Peter C. Brown, Henry L. Roediger III, and Mark A. McDaniel</li>
+                                    <li>"Learning How to Learn: Powerful mental tools to help you master tough subjects" by Barbara Oakley and Terrence Sejnowski</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Constant Self Education</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Continuous self-education is essential for any professional, and particularly for solution architects who must stay up-to-date with the latest technology trends and best practices.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Continuous self-education is particularly important for solution architects to stay current with emerging technologies, maintain a competitive edge, ensure that solutions meet business needs, and improve problem-solving skills.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Set learning goals</strong>: Determine what you want to learn and set specific, achievable learning goals.</li>
+                                <li><strong>Create a learning plan</strong>: Develop a plan for how you will achieve your learning goals.</li>
+                                <li><strong>Engage in peer learning</strong>: Connect with other solution architects and professionals in your field.</li>
+                                <li><strong>Attend conferences and events</strong>: Stay up-to-date with the latest trends and network with other professionals.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>Coursera/Udemy online courses</li>
+                                    <li>"The Personal MBA" by Josh Kaufman</li>
+                                    <li>"A Mind for Numbers" by Barbara Oakley</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Discipline</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Discipline is the ability to control one's behavior and follow a set of rules or standards. It involves self-control, commitment, and a willingness to delay gratification in pursuit of a larger goal or purpose.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Discipline is important for meeting deadlines, attention to detail, following procedures, and professionalism. Solution architects must demonstrate discipline by showing up on time, meeting deadlines, and conducting themselves professionally.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Set clear goals</strong>: Having clear goals gives you a sense of purpose and direction.</li>
+                                <li><strong>Establish routines</strong>: Create a routine or schedule that you can follow consistently.</li>
+                                <li><strong>Prioritize tasks</strong>: Make a list of tasks in order of importance and tackle them accordingly.</li>
+                                <li><strong>Eliminate distractions</strong>: Identify distractions and eliminate them from your environment as much as possible.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Atomic Habits" by James Clear</li>
+                                    <li>"The Power of Habit" by Charles Duhigg</li>
+                                    <li>"The 7 Habits of Highly Effective People" by Stephen Covey</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Personal Growth Plan</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>A personal growth plan is a structured approach to identifying your personal goals, strengths, weaknesses, and areas for improvement. It is a roadmap for achieving personal development and growth.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>A personal growth plan is important for a solution architect because it helps them to continuously improve their skills and knowledge in their field, keeps them current, builds expertise, enhances problem-solving abilities, and boosts confidence.</p>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"The 7 Habits of Highly Effective People" by Stephen Covey</li>
+                                    <li>"Mindset: The New Psychology of Success" by Carol Dweck</li>
+                                    <li>"Atomic Habits" by James Clear</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Time Management</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Priority Management</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Priority management is the process of identifying and organizing tasks and activities based on their relative importance and urgency. It involves setting priorities for tasks and then allocating time, resources, and effort accordingly.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Priority management is especially important for a solution architect because they have to juggle multiple tasks and projects at the same time. It helps them stay focused on critical tasks and achieve project goals within the allocated time and budget.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Set clear goals</strong>: Identify your objectives and break them down into smaller, actionable tasks.</li>
+                                <li><strong>Prioritize tasks</strong>: Use tools such as Eisenhower Matrix to prioritize tasks based on their importance and urgency.</li>
+                                <li><strong>Focus on the most important tasks</strong>: Avoid multitasking and distractions that may hinder your progress.</li>
+                                <li><strong>Track your progress</strong>: Use project management software to track tasks and monitor progress.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"Getting Things Done: The Art of Stress-Free Productivity" by David Allen</li>
+                                    <li>"Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time" by Brian Tracy</li>
+                                    <li>"The One Thing: The Surprisingly Simple Truth Behind Extraordinary Results" by Gary Keller and Jay Papasan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Time Management</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Time management is the process of planning and organizing how much time you allocate to various tasks and activities in order to maximize productivity and achieve specific goals.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Time management is critical for Solution Architects because they are responsible for overseeing the entire solution design process. It allows them to meet project deadlines, manage multiple projects, collaborate effectively with team members, and manage project resources more efficiently.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Set goals</strong>: Start by setting clear, specific, and measurable goals.</li>
+                                <li><strong>Prioritize tasks</strong>: Prioritize your tasks based on their importance and urgency.</li>
+                                <li><strong>Create a schedule</strong>: Create a schedule that includes time for work, personal activities, and leisure.</li>
+                                <li><strong>Avoid procrastination</strong>: Break large tasks into smaller, more manageable tasks.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change" by Stephen R. Covey</li>
+                                    <li>"Getting Things Done: The Art of Stress-Free Productivity" by David Allen</li>
+                                    <li>"Deep Work: Rules for Focused Success in a Distracted World" by Cal Newport</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Mentoring</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-header" onclick="toggleSkill(this)">
+                            <h4>Mentoring</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="skill-content">
+                            <p>Mentoring is a relationship between a more experienced or knowledgeable person (the mentor) and a less experienced or knowledgeable person (the mentee). The mentor provides guidance, support, and advice to the mentee in order to help them achieve their personal or professional goals.</p>
+                            
+                            <h5>Why is it important</h5>
+                            <p>Mentoring can be important for solution architects for career development, knowledge transfer, professional growth, and building relationships. It can be an effective way for solution architects to support their own professional development while also contributing to the growth and development of others in their field.</p>
+                            
+                            <h5>How to improve</h5>
+                            <ul>
+                                <li><strong>Identify your strengths and weaknesses</strong>: Assess your own mentoring skills and identify areas for improvement.</li>
+                                <li><strong>Develop a mentoring plan</strong>: Create a plan for your mentoring relationships, setting goals and objectives.</li>
+                                <li><strong>Build trust and rapport</strong>: Create a safe and supportive environment for your mentee.</li>
+                                <li><strong>Listen actively</strong>: Practice active listening by paying attention to what your mentee is saying.</li>
+                            </ul>
+                            
+                            <div class="sources">
+                                <h5>Sources/books/courses</h5>
+                                <ul>
+                                    <li>"The Mentor's Guide: Facilitating Effective Learning Relationships" by Lois J. Zachary</li>
+                                    <li>"Effective Mentoring in the Workplace" by Gordon F. Shea</li>
+                                    <li>"The Coaching Habit: Say Less, Ask More & Change the Way You Lead Forever" by Michael Bungay Stanier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="closing-message">
+                <p><strong>Personal skills are just as important as technical skills for Solutions Architects</strong></p>
+                <br>
+                <p><strong>Collected with love ❤️ by EB Khiyami</strong></p>
+                <p><a href="https://www.linkedin.com/in/eb-khiyami/" target="_blank">Connect with me on LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSkill(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('expanded');
+            }
+        }
+        
+        // Optional: Expand first skill by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstSkill = document.querySelector('.skill-header');
+            if (firstSkill) {
+                toggleSkill(firstSkill);
+            }
+        });
+    </script>
+</body>
+</html>
