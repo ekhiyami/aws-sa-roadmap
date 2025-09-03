@@ -170,92 +170,83 @@
             margin: 2rem 0;
         }
         
-        .weeks-overview {
+        .workshops-categories {
             margin: 3rem 0;
-        }
-        
-        .progress-path {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            padding: 2rem;
-        }
-        
-        .week-item {
-            background: #ff9900;
-            color: white;
-            padding: 0.8rem 1.2rem;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            min-width: 80px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        
-        .week-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .progress-arrow {
-            font-size: 1.5rem;
-            color: #ccc;
-            margin: 0 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .progress-path {
-                flex-direction: column;
-                gap: 1.5rem;
-                padding: 1rem;
-            }
-            
-            .progress-arrow {
-                transform: rotate(90deg);
-            }
-            
-            .week-item {
-                min-width: 100px;
-                padding: 1rem;
-            }
         }
         
         .workshops {
             margin-top: 3rem;
         }
         
-        .workshop {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid #ff9900;
-        }
-        
-        .workshop h3 {
-            color: #ff9900;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .workshop h4 {
-            color: #232f3e;
+        .workshop-item {
+            background: white;
+            border-radius: 8px;
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
         }
         
-        .workshop ul {
+        .workshop-header {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .workshop-header:hover {
+            background: #e9ecef;
+        }
+        
+        .workshop-header h4 {
+            color: #232f3e;
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            color: #ff9900;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .expand-icon.expanded {
+            transform: rotate(90deg);
+        }
+        
+        .workshop-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            display: none;
+        }
+        
+        .workshop-content.expanded {
+            display: block;
+        }
+        
+        .workshop-content h5 {
+            color: #ff9900;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .workshop-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .workshop-content ul {
             margin: 1rem 0;
             padding-left: 1.5rem;
         }
         
-        .workshop li {
+        .workshop-content li {
             margin-bottom: 0.5rem;
+            line-height: 1.5;
         }
         
         .workshop-link {
@@ -333,73 +324,56 @@
                 </div>
             </div>
             
-            <div class="weeks-overview">
-                <div class="progress-path">
-                    <div class="week-item">1. Core</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">2. IAM</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">3. Networking</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">4. Storage</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">5. Databases</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">6. IaC</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">7. Containers</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">8. Serverless</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">9. Events</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">10. Analytics</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">11. Monitoring</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">12. MCP</div>
-                    <div class="progress-arrow">→</div>
-                    <div class="week-item">13. Agentic</div>
-                </div>
-            </div>
+
             
-            <div class="workshops">
-                <div class="workshop">
-                    <h3>WEEK 1 WORKSHOP • 6 HOURS • MANDATORY</h3>
-                    <h4>AWS Core Services Overview</h4>
-                    <p>For week 1, lets start with getting the grasp on AWS foundational services and especially Amazon EC2!!</p>
-                    <p>Get your hands dirty with AWS General Immersion Day workshop.</p>
-                    <p>The hands-on labs are divided into basic and advanced modules.</p>
-                    <ul>
-                        <li>In basic modules, you will learn various features of AWS foundational services.</li>
-                        <li>In advanced modules, you will learn how to connect each service organically to create architecture like a 3-tier web application.</li>
-                    </ul>
-                    <p>If you are starting your AWS journey, try and complete the labs in Basic modules- specially the core services - compute, networking, security, database and storage. We will dive deep into these core services in subsequent workshops.</p>
-                    <p>If you are further along in your AWS learning journey, I will recommend you to do the cost management labs and the advanced module - web application.</p>
-                    <a href="https://catalog.workshops.aws/general-immersionday/en-US/" target="_blank" class="workshop-link">Start Here</a>
+            <div class="workshops-categories">
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 1 • AWS Core Services Overview • 6 HOURS • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>For week 1, lets start with getting the grasp on AWS foundational services and especially Amazon EC2!!</p>
+                        <p>Get your hands dirty with AWS General Immersion Day workshop.</p>
+                        <p>The hands-on labs are divided into basic and advanced modules.</p>
+                        <ul>
+                            <li>In basic modules, you will learn various features of AWS foundational services.</li>
+                            <li>In advanced modules, you will learn how to connect each service organically to create architecture like a 3-tier web application.</li>
+                        </ul>
+                        <p>If you are starting your AWS journey, try and complete the labs in Basic modules- specially the core services - compute, networking, security, database and storage. We will dive deep into these core services in subsequent workshops.</p>
+                        <p>If you are further along in your AWS learning journey, I will recommend you to do the cost management labs and the advanced module - web application.</p>
+                        <a href="https://catalog.workshops.aws/general-immersionday/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 2 WORKSHOP • 4 HOURS • MANDATORY</h3>
-                    <h4>Identity and Access Management</h4>
-                    <p>Now that we have covered AWS foundational services in week 1, lets dive deep into AWS Identity and Access Management (IAM) in week 2.</p>
-                    <p>In this IAM Immersion Day workshop, through a mix of service explanations and hands-on labs, you will learn about AWS Identity And Access Management (IAM) and how to govern at scale.</p>
-                    <p><strong>Key topics covered in this workshop:</strong></p>
-                    <ul>
-                        <li>Programmatic access to AWS</li>
-                        <li>IAM fundamentals and core concepts</li>
-                        <li>Best practices for the root user account</li>
-                        <li>IAM identities and when to use each option</li>
-                        <li>IAM policies and how permissions are granted</li>
-                    </ul>
-                    <p>The hands-on labs in the workshop are divided into Basic and Advanced Modules, so you can start based on where you are in your learning journey.</p>
-                    <p>By the end of this workshop, you will gain a comprehensive understanding of AWS Identity and Access Management (IAM) and learn how to effectively govern at scale.</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/18b3622c-5d4c-45c9-9834-6a7091109072/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 2 • Identity and Access Management • 4 HOURS • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Now that we have covered AWS foundational services in week 1, lets dive deep into AWS Identity and Access Management (IAM) in week 2.</p>
+                        <p>In this IAM Immersion Day workshop, through a mix of service explanations and hands-on labs, you will learn about AWS Identity And Access Management (IAM) and how to govern at scale.</p>
+                        <p><strong>Key topics covered in this workshop:</strong></p>
+                        <ul>
+                            <li>Programmatic access to AWS</li>
+                            <li>IAM fundamentals and core concepts</li>
+                            <li>Best practices for the root user account</li>
+                            <li>IAM identities and when to use each option</li>
+                            <li>IAM policies and how permissions are granted</li>
+                        </ul>
+                        <p>The hands-on labs in the workshop are divided into Basic and Advanced Modules, so you can start based on where you are in your learning journey.</p>
+                        <p>By the end of this workshop, you will gain a comprehensive understanding of AWS Identity and Access Management (IAM) and learn how to effectively govern at scale.</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/18b3622c-5d4c-45c9-9834-6a7091109072/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 3 WORKSHOP • 5 HOURS • MANDATORY</h3>
-                    <h4>Networking</h4>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 3 • Networking • 5 HOURS • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
                     <p>For week 3, let's dive deep into another AWS core service - Networking.</p>
                     <p>The intent of the AWS Networking workshop is to educate users about AWS Networking.</p>
                     <p>A background in Networking (IP Addressing, Subnetting, VPN, Security, and Routing) is useful but not required.</p>
@@ -413,182 +387,222 @@
                     <a href="https://catalog.workshops.aws/networking/en-US/" target="_blank" class="workshop-link">Start Here</a>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 4 WORKSHOP • 3 HOURS • MANDATORY</h3>
-                    <h4>Storage</h4>
-                    <p>This week's workshop is all about AWS Storage and more specifically Amazon S3.</p>
-                    <p>In this workshop, you'll gain a deeper understanding of AWS storage solutions and best practices through a mix of service explanations and hands-on labs.</p>
-                    <p><strong>Key topics covered in this workshop:</strong></p>
-                    <ul>
-                        <li>AWS storage fundamentals and core concepts.</li>
-                        <li>Best practices for data protection and security.</li>
-                        <li>How to choose the right storage service for your needs.</li>
-                        <li>You will learn about backup and data migration options.</li>
-                        <li>How to use Amazon S3, EBS, EFS, and FSx to store and retrieve data.</li>
-                    </ul>
-                    <p>It's a bit longer workshop but try and complete at least the first two modules - S3 Security Best Practices and S3 Storage Performance.</p>
-                    <p>At the end of this workshop, you will have a deeper understanding of AWS storage solutions, with a focus on Amazon S3. Topics covered include AWS storage fundamentals, data protection, choosing the right storage service, backup and data migration options, and using Amazon S3, EBS, EFS, and FSx for data storage</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/74237958-77c8-4e7f-a02f-ae201a04d759/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 4 • Storage • 3 HOURS • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>This week's workshop is all about AWS Storage and more specifically Amazon S3.</p>
+                        <p>In this workshop, you'll gain a deeper understanding of AWS storage solutions and best practices through a mix of service explanations and hands-on labs.</p>
+                        <p><strong>Key topics covered in this workshop:</strong></p>
+                        <ul>
+                            <li>AWS storage fundamentals and core concepts.</li>
+                            <li>Best practices for data protection and security.</li>
+                            <li>How to choose the right storage service for your needs.</li>
+                            <li>You will learn about backup and data migration options.</li>
+                            <li>How to use Amazon S3, EBS, EFS, and FSx to store and retrieve data.</li>
+                        </ul>
+                        <p>It's a bit longer workshop but try and complete at least the first two modules - S3 Security Best Practices and S3 Storage Performance.</p>
+                        <p>At the end of this workshop, you will have a deeper understanding of AWS storage solutions, with a focus on Amazon S3. Topics covered include AWS storage fundamentals, data protection, choosing the right storage service, backup and data migration options, and using Amazon S3, EBS, EFS, and FSx for data storage</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/74237958-77c8-4e7f-a02f-ae201a04d759/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 5 WORKSHOP • 1 HOUR • MANDATORY</h3>
-                    <h4>Databases</h4>
-                    <p>The days of one-size-fits-all, monolithic databases are behind us!! Lets dive deep into AWS Purpose-Built Databases with this week's workshop!!</p>
-                    <p>In this workshop, you'll gain hands-on experience on how to migrate relational data to AWS purpose-built databases such as Amazon DynamoDB and Amazon Aurora using AWS DMS and build data processing applications on top of it.</p>
-                    <p><strong>Key topics covered in this workshop:</strong></p>
-                    <ul>
-                        <li>High performance and scale with Amazon DynamoDB.</li>
-                        <li>Data Migration using AWS DMS (Database Migration Service).</li>
-                        <li>Data processing using Amazon DynamoDB and Amazon Aurora.</li>
-                        <li>Query multiple data sources using Amazon Athena federated query.</li>
-                    </ul>
-                    <p>By the end of this workshop, you will gain hands-on experience in migrating relational data to AWS purpose-built databases such as Amazon DynamoDB and Amazon Aurora using AWS DMS.</p>
-                    <a href="https://catalog.workshops.aws/cfn101/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 5 • Databases • 1 HOUR • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>The days of one-size-fits-all, monolithic databases are behind us!! Lets dive deep into AWS Purpose-Built Databases with this week's workshop!!</p>
+                        <p>In this workshop, you'll gain hands-on experience on how to migrate relational data to AWS purpose-built databases such as Amazon DynamoDB and Amazon Aurora using AWS DMS and build data processing applications on top of it.</p>
+                        <p><strong>Key topics covered in this workshop:</strong></p>
+                        <ul>
+                            <li>High performance and scale with Amazon DynamoDB.</li>
+                            <li>Data Migration using AWS DMS (Database Migration Service).</li>
+                            <li>Data processing using Amazon DynamoDB and Amazon Aurora.</li>
+                            <li>Query multiple data sources using Amazon Athena federated query.</li>
+                        </ul>
+                        <p>By the end of this workshop, you will gain hands-on experience in migrating relational data to AWS purpose-built databases such as Amazon DynamoDB and Amazon Aurora using AWS DMS.</p>
+                        <a href="https://catalog.workshops.aws/cfn101/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 6 WORKSHOP • 3 HOURS • OPTIONAL</h3>
-                    <h4>Infra-as-code</h4>
-                    <p>Let's focus on Infra-as-code for the week 6 workshop - AWS CloudFormation Workshop.</p>
-                    <p>The intent of this workshop is to educate builders about the features of AWS CloudFormation and how to get started building quickly.</p>
-                    <p>A background in CloudFormation, command line, git, and development workflows is optional.</p>
-                    <p>This workshop is split into multiple parts based on the skill level (Basics, Intermediate, Advanced) and focus (Templates, Operations, Resource Types development).</p>
-                    <p><strong>The Basics part introduces:</strong></p>
-                    <ul>
-                        <li>Set up a development environment.</li>
-                        <li>Understand CloudFormation templates, stacks, and foundational concepts.</li>
-                        <li>Deploy a simple EC2 Web Server using CloudFormation.</li>
-                    </ul>
-                    <p><strong>In the Intermediate and Advanced sections:</strong></p>
-                    <ul>
-                        <li>Manage multiple stacks with Nested Stacks and Layered Stacks.</li>
-                        <li>Extend CloudFormation capabilities by creating modules.</li>
-                        <li>Create custom resource types to enhance CloudFormation functionality.</li>
-                    </ul>
-                    <p>By the end of this workshop, you will gain a comprehensive understanding of AWS CloudFormation, including setting up a development environment, deploying infrastructure using CloudFormation templates, and utilizing advanced features such as nested stacks and custom resource types.</p>
-                    <a href="https://catalog.workshops.aws/cfn101/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 6 • Infra-as-code • 3 HOURS • OPTIONAL</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Let's focus on Infra-as-code for the week 6 workshop - AWS CloudFormation Workshop.</p>
+                        <p>The intent of this workshop is to educate builders about the features of AWS CloudFormation and how to get started building quickly.</p>
+                        <p>A background in CloudFormation, command line, git, and development workflows is optional.</p>
+                        <p>This workshop is split into multiple parts based on the skill level (Basics, Intermediate, Advanced) and focus (Templates, Operations, Resource Types development).</p>
+                        <p><strong>The Basics part introduces:</strong></p>
+                        <ul>
+                            <li>Set up a development environment.</li>
+                            <li>Understand CloudFormation templates, stacks, and foundational concepts.</li>
+                            <li>Deploy a simple EC2 Web Server using CloudFormation.</li>
+                        </ul>
+                        <p><strong>In the Intermediate and Advanced sections:</strong></p>
+                        <ul>
+                            <li>Manage multiple stacks with Nested Stacks and Layered Stacks.</li>
+                            <li>Extend CloudFormation capabilities by creating modules.</li>
+                            <li>Create custom resource types to enhance CloudFormation functionality.</li>
+                        </ul>
+                        <p>By the end of this workshop, you will gain a comprehensive understanding of AWS CloudFormation, including setting up a development environment, deploying infrastructure using CloudFormation templates, and utilizing advanced features such as nested stacks and custom resource types.</p>
+                        <a href="https://catalog.workshops.aws/cfn101/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 7 WORKSHOP • 3 HOURS • DEPENDS ON SPECIALTY</h3>
-                    <h4>Containers</h4>
-                    <p>This week let's do hands-on on AWS Containers services - Amazon ECS and AWS Fargate.</p>
-                    <p>This workshop is designed to educate engineers that might not be familiar with Fargate, ECS, and possibly even Docker container workflow.</p>
-                    <p><strong>Key topics covered in this workshop:</strong></p>
-                    <p>The key aspect of <strong>Amazon ECS Workshop</strong> is the ability to launch a three-tier polyglot web application that includes a web front end serving two API back-ends, with each application using different languages.</p>
-                    <p>If you are a beginner then at least complete the first module - deploying microservices to ECS.</p>
-                    <p>If you are intermediate or expert pick and choose your modules that you would like to dive deep on like monitoring ECS clusters , capacity providers. blue/green deployments etc.</p>
-                    <p>By the end of this workshop, you will gain practical experience in deploying and managing containerized applications using Amazon ECS, and learn advanced features like capacity providers and blue/green deployments.</p>
-                    <a href="https://catalog.workshops.aws/ecs-immersion-day/en-US" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 7 • Containers • 3 HOURS • DEPENDS ON SPECIALTY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>This week let's do hands-on on AWS Containers services - Amazon ECS and AWS Fargate.</p>
+                        <p>This workshop is designed to educate engineers that might not be familiar with Fargate, ECS, and possibly even Docker container workflow.</p>
+                        <p><strong>Key topics covered in this workshop:</strong></p>
+                        <p>The key aspect of <strong>Amazon ECS Workshop</strong> is the ability to launch a three-tier polyglot web application that includes a web front end serving two API back-ends, with each application using different languages.</p>
+                        <p>If you are a beginner then at least complete the first module - deploying microservices to ECS.</p>
+                        <p>If you are intermediate or expert pick and choose your modules that you would like to dive deep on like monitoring ECS clusters , capacity providers. blue/green deployments etc.</p>
+                        <p>By the end of this workshop, you will gain practical experience in deploying and managing containerized applications using Amazon ECS, and learn advanced features like capacity providers and blue/green deployments.</p>
+                        <a href="https://catalog.workshops.aws/ecs-immersion-day/en-US" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 8 WORKSHOP • 3 HOURS • OPTIONAL</h3>
-                    <h4>Serverless</h4>
-                    <p>This week let's dive into creating a simple serverless web application that implements a "Todo app".</p>
-                    <p>In this workshop, you'll build a basic serverless web application with an API for storing and retrieving tasks from a cloud database.</p>
-                    <p><strong>What you'll learn:</strong></p>
-                    <ul>
-                        <li>Build a serverless web application from scratch, including setup to deployment.</li>
-                        <li>Gain hands-on experience with AWS services such as Amazon S3, AWS Lambda, Amazon API Gateway, AWS Amplify, Amazon DynamoDB, and Amazon Rekognition.</li>
-                        <li>Incorporate machine learning to automatically identify and label objects in attached images, giving your app a unique edge.</li>
-                    </ul>
-                    <p><strong>To get the most out of this workshop, you'll need:</strong></p>
-                    <ul>
-                        <li>An AWS account</li>
-                        <li>A text editor for coding</li>
-                        <li>Latest Chrome or Firefox browser</li>
-                        <li>Basic HTML/CSS/JavaScript knowledge</li>
-                        <li>Familiarity with the Linux command line is helpful</li>
-                    </ul>
-                    <p>By the end of this workshop, you'll have the skills to create serverless web apps, integrate machine learning, and showcase your AWS expertise!</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/841ce16b-9d86-48ac-a3f6-6a1b29f95d2b/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 8 • Serverless • 3 HOURS • OPTIONAL</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>This week let's dive into creating a simple serverless web application that implements a "Todo app".</p>
+                        <p>In this workshop, you'll build a basic serverless web application with an API for storing and retrieving tasks from a cloud database.</p>
+                        <p><strong>What you'll learn:</strong></p>
+                        <ul>
+                            <li>Build a serverless web application from scratch, including setup to deployment.</li>
+                            <li>Gain hands-on experience with AWS services such as Amazon S3, AWS Lambda, Amazon API Gateway, AWS Amplify, Amazon DynamoDB, and Amazon Rekognition.</li>
+                            <li>Incorporate machine learning to automatically identify and label objects in attached images, giving your app a unique edge.</li>
+                        </ul>
+                        <p><strong>To get the most out of this workshop, you'll need:</strong></p>
+                        <ul>
+                            <li>An AWS account</li>
+                            <li>A text editor for coding</li>
+                            <li>Latest Chrome or Firefox browser</li>
+                            <li>Basic HTML/CSS/JavaScript knowledge</li>
+                            <li>Familiarity with the Linux command line is helpful</li>
+                        </ul>
+                        <p>By the end of this workshop, you'll have the skills to create serverless web apps, integrate machine learning, and showcase your AWS expertise!</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/841ce16b-9d86-48ac-a3f6-6a1b29f95d2b/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 9 WORKSHOP • 2-4 HOURS • DEPENDS ON SPECIALTY</h3>
-                    <h4>Event-driven architectures</h4>
-                    <p>Now that you have built serverless application, this week lets focus on - Building event-driven architectures on AWS.</p>
-                    <p>In this workshop, you'll learn the basics of event-driven design, how to choose the right AWS service for the job, as well as how to optimize for both cost and performance</p>
-                    <p><strong>What you'll learn:</strong></p>
-                    <ul>
-                        <li>Optimizing for cost and performance.</li>
-                        <li>Explore Lambda, EventBridge, and SNS.</li>
-                        <li>Core concepts of event-driven architectures.</li>
-                        <li>Industry insights for successful implementation.</li>
-                        <li>Choosing the right AWS service for your use cases.</li>
-                    </ul>
-                    <p>By the end of this workshop, you'll be equipped with the tools and knowledge to harness the power of event-driven architectures and unlock new possibilities for your AWS applications.</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/63320e83-6abc-493d-83d8-f822584fb3cb/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 9 • Event-driven architectures • 2-4 HOURS • DEPENDS ON SPECIALTY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Now that you have built serverless application, this week lets focus on - Building event-driven architectures on AWS.</p>
+                        <p>In this workshop, you'll learn the basics of event-driven design, how to choose the right AWS service for the job, as well as how to optimize for both cost and performance</p>
+                        <p><strong>What you'll learn:</strong></p>
+                        <ul>
+                            <li>Optimizing for cost and performance.</li>
+                            <li>Explore Lambda, EventBridge, and SNS.</li>
+                            <li>Core concepts of event-driven architectures.</li>
+                            <li>Industry insights for successful implementation.</li>
+                            <li>Choosing the right AWS service for your use cases.</li>
+                        </ul>
+                        <p>By the end of this workshop, you'll be equipped with the tools and knowledge to harness the power of event-driven architectures and unlock new possibilities for your AWS applications.</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/63320e83-6abc-493d-83d8-f822584fb3cb/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 10 WORKSHOP • 3 HOURS • DEPENDS ON SPECIALTY</h3>
-                    <h4>Analytics</h4>
-                    <p>Are you ready to elevate your data analytics skills and unlock the full potential of your data? Let's focus on Analytics on AWS workshop for week 10.</p>
-                    <p>This workshop has been designed to help you achieve familiarity with the different analytics services that are part of the AWS Analytics portfolio.</p>
-                    <p><strong>What you'll learn:</strong></p>
-                    <ul>
-                        <li>Designing a serverless data lake architecture</li>
-                        <li>Loading data into Amazon Redshift from Glue</li>
-                        <li>Exploring Amazon Redshift's best design practices</li>
-                        <li>Automatically cataloging datasets using AWS Glue</li>
-                        <li>Running Spark transformation jobs using Amazon EMR</li>
-                        <li>Leveraging real-time streaming data with Amazon Kinesis</li>
-                        <li>Analyzing real-time data with Amazon Kinesis Data Analytics</li>
-                        <li>Performing data transformation with AWS Glue and Glue DataBrew</li>
-                        <li>Building a data processing pipeline and Data Lake using Amazon S3</li>
-                        <li>Querying data with Amazon Athena and visualizing it using Amazon QuickSight</li>
-                    </ul>
-                    <p>By the end of this workshop, you will learn to ingest, store, transform, and consume data using several analytics services such as AWS Glue, Amazon Athena, Amazon Kinesis, Amazon EMR, Amazon QuickSight as well as AWS Lambda, and Amazon Redshift.</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/44c91c21-a6a4-4b56-bd95-56bd443aa449/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 10 • Analytics • 3 HOURS • DEPENDS ON SPECIALTY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Are you ready to elevate your data analytics skills and unlock the full potential of your data? Let's focus on Analytics on AWS workshop for week 10.</p>
+                        <p>This workshop has been designed to help you achieve familiarity with the different analytics services that are part of the AWS Analytics portfolio.</p>
+                        <p><strong>What you'll learn:</strong></p>
+                        <ul>
+                            <li>Designing a serverless data lake architecture</li>
+                            <li>Loading data into Amazon Redshift from Glue</li>
+                            <li>Exploring Amazon Redshift's best design practices</li>
+                            <li>Automatically cataloging datasets using AWS Glue</li>
+                            <li>Running Spark transformation jobs using Amazon EMR</li>
+                            <li>Leveraging real-time streaming data with Amazon Kinesis</li>
+                            <li>Analyzing real-time data with Amazon Kinesis Data Analytics</li>
+                            <li>Performing data transformation with AWS Glue and Glue DataBrew</li>
+                            <li>Building a data processing pipeline and Data Lake using Amazon S3</li>
+                            <li>Querying data with Amazon Athena and visualizing it using Amazon QuickSight</li>
+                        </ul>
+                        <p>By the end of this workshop, you will learn to ingest, store, transform, and consume data using several analytics services such as AWS Glue, Amazon Athena, Amazon Kinesis, Amazon EMR, Amazon QuickSight as well as AWS Lambda, and Amazon Redshift.</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/44c91c21-a6a4-4b56-bd95-56bd443aa449/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 11 WORKSHOP • 3 HOURS • OPTIONAL</h3>
-                    <h4>Observability</h4>
-                    <p>Let's learn about the AWS Observability Tools.</p>
-                    <p>One Observability Workshop - This workshop is aimed at providing a hands-on experience for you on the wide variety of toolsets AWS offers to set up monitoring and observability on your applications.</p>
-                    <p>Whether your applications are on-prem or on AWS, monolith or microservices-based, AWS observability tools provide unparalleled insights into performance and application health.</p>
-                    <p><strong>What you'll learn:</strong></p>
-                    <ul>
-                        <li>Learn about Amazon CloudWatch, AWS X-Ray, Amazon Managed Service for Prometheus, Amazon Managed Grafana, and AWS Distro for OpenTelemetry.</li>
-                        <li>Deploy a microservice application and dive deep into monitoring techniques.</li>
-                        <li>Gain mastery in logging, metrics, container monitoring, and tracing.</li>
-                    </ul>
-                    <p>By the end of this workshop, you'll have an understanding of how to identify bottlenecks, detect issues, and uncover defects effortlessly with AWS's cost-effective and native observability solutions. No more manual sifting through logs, metrics, and trace data.</p>
-                    <a href="https://catalog.workshops.aws/observability/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 11 • Observability • 3 HOURS • OPTIONAL</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Let's learn about the AWS Observability Tools.</p>
+                        <p>One Observability Workshop - This workshop is aimed at providing a hands-on experience for you on the wide variety of toolsets AWS offers to set up monitoring and observability on your applications.</p>
+                        <p>Whether your applications are on-prem or on AWS, monolith or microservices-based, AWS observability tools provide unparalleled insights into performance and application health.</p>
+                        <p><strong>What you'll learn:</strong></p>
+                        <ul>
+                            <li>Learn about Amazon CloudWatch, AWS X-Ray, Amazon Managed Service for Prometheus, Amazon Managed Grafana, and AWS Distro for OpenTelemetry.</li>
+                            <li>Deploy a microservice application and dive deep into monitoring techniques.</li>
+                            <li>Gain mastery in logging, metrics, container monitoring, and tracing.</li>
+                        </ul>
+                        <p>By the end of this workshop, you'll have an understanding of how to identify bottlenecks, detect issues, and uncover defects effortlessly with AWS's cost-effective and native observability solutions. No more manual sifting through logs, metrics, and trace data.</p>
+                        <a href="https://catalog.workshops.aws/observability/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 12 WORKSHOP • 1 HOUR • MANDATORY</h3>
-                    <h4>Building MCP Powered Agents with Claude on Amazon Bedrock</h4>
-                    <p>Welcome to the "Building MCP Powered Agents with Claude on Amazon Bedrock" workshop! In this hands-on workshop, participants will learn how to leverage Amazon Bedrock and Claude to build an AI-powered AWS Solutions Architect agent.</p>
-                    <p>This specialized agent will demonstrate how foundation models can be enhanced with targeted capabilities to assist cloud architects in accessing AWS documentation and automatically generating architectural diagrams from natural language descriptions.</p>
-                    <p><strong>What you'll learn:</strong></p>
-                    <ul>
-                        <li>Creating a basic agent with custom tools</li>
-                        <li>Connecting to Model Context Protocol (MCP) servers</li>
-                        <li>Providing specialized AWS knowledge and diagramming abilities</li>
-                        <li>Deploying agents to production using Amazon Bedrock AgentCore</li>
-                    </ul>
-                    <p>Participants will start by creating a basic agent with custom tools, then progressively extend its functionality by connecting to Model Context Protocol (MCP) servers that provide specialized AWS knowledge and diagramming abilities, and finally learn how to deploy these agents to production using Amazon Bedrock AgentCore.</p>
-                    <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/fda82638-2464-49f9-b6af-0e72b157d1a9/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 12 • Building MCP Powered Agents with Claude on Amazon Bedrock • 1 HOUR • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>Welcome to the "Building MCP Powered Agents with Claude on Amazon Bedrock" workshop! In this hands-on workshop, participants will learn how to leverage Amazon Bedrock and Claude to build an AI-powered AWS Solutions Architect agent.</p>
+                        <p>This specialized agent will demonstrate how foundation models can be enhanced with targeted capabilities to assist cloud architects in accessing AWS documentation and automatically generating architectural diagrams from natural language descriptions.</p>
+                        <p><strong>What you'll learn:</strong></p>
+                        <ul>
+                            <li>Creating a basic agent with custom tools</li>
+                            <li>Connecting to Model Context Protocol (MCP) servers</li>
+                            <li>Providing specialized AWS knowledge and diagramming abilities</li>
+                            <li>Deploying agents to production using Amazon Bedrock AgentCore</li>
+                        </ul>
+                        <p>Participants will start by creating a basic agent with custom tools, then progressively extend its functionality by connecting to Model Context Protocol (MCP) servers that provide specialized AWS knowledge and diagramming abilities, and finally learn how to deploy these agents to production using Amazon Bedrock AgentCore.</p>
+                        <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/fda82638-2464-49f9-b6af-0e72b157d1a9/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
                 
-                <div class="workshop">
-                    <h3>WEEK 13 WORKSHOP • 2 HOURS • MANDATORY</h3>
-                    <h4>Building Agentic Workflows on AWS</h4>
-                    <p>This workshop is designed for builders ready to create Agentic Workflows on AWS. Agentic Workflows enable large language models (LLMs) to act autonomously, performing tasks or providing assistance on behalf of users.</p>
-                    <p><strong>In this workshop, you'll learn to:</strong></p>
-                    <ul>
-                        <li>Leverage capabilities in Amazon Bedrock to create both chatbot and non-chatbot workflows</li>
-                        <li>Incorporate features such as code interpreter and long-term memory</li>
-                        <li>Use Amazon Q Developer to assist in coding and debugging</li>
-                    </ul>
-                    <p>This comprehensive workshop will equip you with the knowledge and skills to build sophisticated AI-powered workflows that can operate autonomously while providing valuable assistance to users across various domains and use cases.</p>
-                    <a href="https://catalog.workshops.aws/building-agentic-workflows/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h4>WEEK 13 • Building Agentic Workflows on AWS • 2 HOURS • MANDATORY</h4>
+                        <span class="expand-icon">▶</span>
+                    </div>
+                    <div class="workshop-content">
+                        <p>This workshop is designed for builders ready to create Agentic Workflows on AWS. Agentic Workflows enable large language models (LLMs) to act autonomously, performing tasks or providing assistance on behalf of users.</p>
+                        <p><strong>In this workshop, you'll learn to:</strong></p>
+                        <ul>
+                            <li>Leverage capabilities in Amazon Bedrock to create both chatbot and non-chatbot workflows</li>
+                            <li>Incorporate features such as code interpreter and long-term memory</li>
+                            <li>Use Amazon Q Developer to assist in coding and debugging</li>
+                        </ul>
+                        <p>This comprehensive workshop will equip you with the knowledge and skills to build sophisticated AI-powered workflows that can operate autonomously while providing valuable assistance to users across various domains and use cases.</p>
+                        <a href="https://catalog.workshops.aws/building-agentic-workflows/en-US/" target="_blank" class="workshop-link">Start Here</a>
+                    </div>
                 </div>
             </div>
             
@@ -600,5 +614,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleWorkshop(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('expanded');
+            }
+        }
+        
+        // Optional: Expand first workshop by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstWorkshop = document.querySelector('.workshop-header');
+            if (firstWorkshop) {
+                toggleWorkshop(firstWorkshop);
+            }
+        });
+    </script>
 </body>
 </html>
