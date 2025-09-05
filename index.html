@@ -38,6 +38,8 @@
             margin-bottom: 1.5rem;
         }
         
+
+        
         @media (min-width: 768px) {
             header {
                 padding: 2rem 0;
@@ -160,6 +162,28 @@
         .closing-message a:hover {
             text-decoration: underline;
         }
+        
+        .author-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .author-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ff9900;
+        }
+        
+        @media (max-width: 767px) {
+            .author-section {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -203,10 +227,10 @@
     </div>
 
             <div class="closing-message">
-                <p><strong>It's hard to get to the bottom but big dreams require big commitment</strong></p>
-                <br>
-                <p><strong>Collected with love ❤️ by EB Khiyami</strong></p>
-                <p><a href="https://www.linkedin.com/in/eb-khiyami/" target="_blank">Connect with me on LinkedIn</a></p>
+                <div class="author-section">
+                    <img src="eb-profile.jpg" alt="EB Khiyami" class="author-pic">
+                    <p><strong>Collected with love ❤️ by EB Khiyami (<a href="https://www.linkedin.com/in/eb-khiyami/" target="_blank">Say hi on LinkedIn</a>, <a href="https://topmate.io/ekhiyami/1615386?utm_source=spotlight&utm_campaign=ekhiyami" target="_blank">Book a call</a>)</strong></p>
+                </div>
             </div>
         </div>
 </body>
