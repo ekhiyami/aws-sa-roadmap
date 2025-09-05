@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Foundation - AWS Solutions Architect Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+        
+        header {
+            background: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            header {
+                padding: 2rem 0;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        @media (min-width: 768px) {
+            .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .back-nav {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        @media (min-width: 768px) {
+            .back-nav {
+                padding: 1rem 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .back-nav a {
+            color: #ff9900;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        @media (min-width: 768px) {
+            .content {
+                padding: 3rem;
+            }
+        }
+        
+        .intro-section {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+        
+        .intro-section h2 {
+            color: #232f3e;
+            margin-bottom: 1rem;
+        }
+        
+        .challenge-description {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #ff9900;
+        }
+        
+        .domains-categories {
+            margin: 3rem 0;
+        }
+        
+        .category {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #ff9900;
+        }
+        
+        .category h3 {
+            color: #ff9900;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .domain-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .domain-header {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .domain-header:hover {
+            background: #e9ecef;
+        }
+        
+        .domain-header h4 {
+            color: #232f3e;
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .expand-icon {
+            color: #ff9900;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .expand-icon.expanded {
+            transform: rotate(90deg);
+        }
+        
+        .domain-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            display: none;
+        }
+        
+        .domain-content.expanded {
+            display: block;
+        }
+        
+        .domain-content h5 {
+            color: #ff9900;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .domain-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .domain-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .domain-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .service-tag {
+            background: #f5f5f5;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .closing-message {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #232f3e;
+            color: white;
+            border-radius: 12px;
+        }
+        
+        .closing-message a {
+            color: #ff9900;
+            text-decoration: none;
+        }
+        
+        .closing-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AWS Solutions Architect Roadmap</h1>
+        <p class="subtitle">Your comprehensive path to becoming an AWS Solutions Architect</p>
+    </header>
+
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html">← Back to Roadmap</a>
+        </div>
+        
+        <div class="content">
+            <div class="intro-section">
+                <h2>Technical Foundation for AWS Solutions Architects</h2>
+                
+                <div class="challenge-description">
+                    <p>The complexity of an architect role comes mainly from being able to <strong>see the full picture</strong>, <strong>identify patterns</strong>, and <strong>trust customers</strong> on areas where they need help.</p>
+                    
+                    <p>You work with customers of different sizes and industries, speaking to C-suite executives, developers, and architects. You need a <strong>common language</strong> to meet them in the middle and understand their pain.</p>
+                    
+                    <p>You are your customer's <strong>trusted advisor</strong> - your goal is to sell, but you must build <strong>technical trust first</strong>. This requires a solid technical foundation that evolves with industry changes.</p>
+                    
+                    <p><strong>This roadmap covers the domains and technical concepts essential for your SA role and interviews.</strong></p>
+                </div>
+            </div>
+            
+            <div class="domains-categories">
+                <div class="category">
+                    <h3>Core AWS Domains</h3>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 1: Design Solutions for Organizational Complexity</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Architect solutions that address complex organizational requirements including network connectivity, security controls, resilience, multi-account strategies, and cost optimization.</p>
+                            
+                            <h5>Task 1.1: Architect network connectivity strategies</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AWS Global Infrastructure</li>
+                                <li>AWS networking concepts (VPC, Direct Connect, VPN, transitive routing)</li>
+                                <li>Hybrid DNS concepts (Route 53 Resolver, on-premises DNS integration)</li>
+                                <li>Network segmentation (subnetting, IP addressing, VPC connectivity)</li>
+                                <li>Network traffic monitoring</li>
+                            </ul>
+                            
+                            <h5>Task 1.2: Prescribe security controls</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>IAM and IAM Identity Center</li>
+                                <li>Route tables, security groups, and network ACLs</li>
+                                <li>Encryption keys and certificate management (KMS, ACM)</li>
+                                <li>AWS security, identity, and compliance tools</li>
+                            </ul>
+                            
+                            <h5>Task 1.3: Design reliable and resilient architectures</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Recovery time objectives (RTOs) and recovery point objectives (RPOs)</li>
+                                <li>Disaster recovery strategies (pilot light, warm standby, multi-site)</li>
+                                <li>Data backup and restoration</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">Amazon VPC</div>
+                                <div class="service-tag">AWS Direct Connect</div>
+                                <div class="service-tag">AWS IAM</div>
+                                <div class="service-tag">AWS Organizations</div>
+                                <div class="service-tag">AWS Control Tower</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 2: Design for New Solutions</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Design new solutions that meet business requirements with appropriate deployment strategies, business continuity, security controls, reliability, performance, and cost optimization.</p>
+                            
+                            <h5>Task 2.1: Design a deployment strategy to meet business requirements</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Infrastructure as code (IaC) with CloudFormation</li>
+                                <li>Continuous integration and continuous delivery (CI/CD)</li>
+                                <li>Change management processes</li>
+                                <li>Configuration management tools (Systems Manager)</li>
+                            </ul>
+                            
+                            <h5>Task 2.2: Design a solution to ensure business continuity</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AWS Global Infrastructure</li>
+                                <li>AWS networking concepts (Route 53, routing methods)</li>
+                                <li>RTOs and RPOs</li>
+                                <li>Disaster recovery scenarios and solutions on AWS</li>
+                            </ul>
+                            
+                            <h5>Task 2.3: Determine security controls based on requirements</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>IAM users and roles with least privilege access</li>
+                                <li>Encryption options for data at rest and in transit</li>
+                                <li>AWS managed security services (Shield, WAF, GuardDuty)</li>
+                            </ul>
+                            
+                            <h5>Task 2.4: Design a strategy to meet reliability requirements</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AWS Global Infrastructure and multi-AZ architectures</li>
+                                <li>AWS storage services and replication strategies (S3, RDS, ElastiCache)</li>
+                                <li>Auto scaling policies and events</li>
+                                <li>Application integration (SNS, SQS, Step Functions)</li>
+                            </ul>
+                            
+                            <h5>Task 2.5: Design a solution to meet performance objectives</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Performance monitoring technologies</li>
+                                <li>Storage options and instance families</li>
+                                <li>Purpose-built databases (RDS, DynamoDB, Aurora)</li>
+                                <li>Compute services (EC2, Lambda, Fargate, Batch)</li>
+                            </ul>
+                            
+                            <h5>Task 2.6: Determine a cost optimization strategy</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AWS cost monitoring tools (Cost Explorer, Trusted Advisor)</li>
+                                <li>Pricing models (Reserved Instances, Savings Plans, Spot Instances)</li>
+                                <li>Storage tiering and data transfer costs</li>
+                                <li>Rightsizing strategies</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">Amazon EC2</div>
+                                <div class="service-tag">AWS Lambda</div>
+                                <div class="service-tag">Amazon S3</div>
+                                <div class="service-tag">Amazon RDS</div>
+                                <div class="service-tag">Amazon DynamoDB</div>
+                                <div class="service-tag">Amazon SQS</div>
+                                <div class="service-tag">Amazon SNS</div>
+                                <div class="service-tag">AWS CloudFormation</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 3: Continuous Improvement for Existing Solutions</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Improve existing solutions by enhancing operational excellence, security posture, performance optimization, reliability, and identifying cost optimization opportunities.</p>
+                            
+                            <h5>Task 3.1: Determine a strategy to improve overall operational excellence</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Alerting and automatic remediation strategies</li>
+                                <li>Disaster recovery planning</li>
+                                <li>Monitoring and logging solutions (CloudWatch)</li>
+                                <li>CI/CD pipelines and deployment strategies</li>
+                            </ul>
+                            
+                            <h5>Task 3.2: Determine a strategy to improve security</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Data retention, sensitivity, and regulatory requirements</li>
+                                <li>Automated monitoring and remediation strategies</li>
+                                <li>Secrets management (Systems Manager, Secrets Manager)</li>
+                                <li>Principle of least privilege access</li>
+                            </ul>
+                            
+                            <h5>Task 3.3: Determine a strategy to improve performance</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>High-performing systems architectures (auto scaling, placement groups)</li>
+                                <li>Global service offerings (Global Accelerator, CloudFront)</li>
+                                <li>Service level agreements (SLAs) and key performance indicators</li>
+                            </ul>
+                            
+                            <h5>Task 3.4: Determine a strategy to improve reliability</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AWS Global Infrastructure and data replication methods</li>
+                                <li>Scaling methodologies (load balancing, auto scaling)</li>
+                                <li>High availability and resiliency patterns</li>
+                                <li>Disaster recovery methods and tools</li>
+                            </ul>
+                            
+                            <h5>Task 3.5: Identify opportunities for cost optimizations</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Cost-conscious architecture choices (Spot Instances, rightsizing)</li>
+                                <li>Price model adoptions (Reserved Instances, Savings Plans)</li>
+                                <li>Networking and data transfer costs</li>
+                                <li>Cost management, alerting, and reporting</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">Amazon CloudWatch</div>
+                                <div class="service-tag">AWS Config</div>
+                                <div class="service-tag">AWS Trusted Advisor</div>
+                                <div class="service-tag">AWS Cost Explorer</div>
+                                <div class="service-tag">Elastic Load Balancing</div>
+                                <div class="service-tag">Amazon CloudFront</div>
+                                <div class="service-tag">AWS Auto Scaling</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 4: Accelerate Workload Migration and Modernization</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Select, migrate, and modernize existing workloads using appropriate migration strategies, tools, and architectural patterns for optimal cloud adoption.</p>
+                            
+                            <h5>Task 4.1: Select existing workloads and processes for potential migration</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Migration assessment and tracking tools (Migration Hub)</li>
+                                <li>Portfolio assessment and asset planning</li>
+                                <li>Prioritization and migration of workloads (wave planning)</li>
+                                <li>Seven common migration strategies (7Rs)</li>
+                            </ul>
+                            
+                            <h5>Task 4.2: Determine the optimal migration approach for existing workloads</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Data migration options and tools (DataSync, Snow Family)</li>
+                                <li>Application migration tools (Application Migration Service)</li>
+                                <li>Database migration tools (DMS, Schema Conversion Tool)</li>
+                                <li>Governance tools (Control Tower, Organizations)</li>
+                            </ul>
+                            
+                            <h5>Task 4.3: Determine opportunities for modernization and enhancements</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Serverless compute offerings (Lambda)</li>
+                                <li>Containers (ECS, EKS, Fargate)</li>
+                                <li>Purpose-built databases (DynamoDB, Aurora Serverless)</li>
+                                <li>Integration services (SQS, SNS, EventBridge)</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">AWS Migration Hub</div>
+                                <div class="service-tag">AWS DataSync</div>
+                                <div class="service-tag">AWS DMS</div>
+                                <div class="service-tag">AWS Lambda</div>
+                                <div class="service-tag">Amazon ECS</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 5: AWS Well-Architected Framework</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Apply AWS Well-Architected Framework principles, pillars, and lenses to design, evaluate, and improve cloud architectures with appropriate trade-offs.</p>
+                            
+                            <h5>Task 5.1: Apply Well-Architected Framework pillars</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Operational Excellence pillar (automation, monitoring, continuous improvement)</li>
+                                <li>Security pillar (identity, data protection, incident response)</li>
+                                <li>Reliability pillar (fault tolerance, recovery planning, scaling)</li>
+                                <li>Performance Efficiency pillar (selection, monitoring, trade-offs)</li>
+                                <li>Cost Optimization pillar (expenditure awareness, cost-effective resources)</li>
+                                <li>Sustainability pillar (environmental impact, resource efficiency)</li>
+                            </ul>
+                            
+                            <h5>Task 5.2: Implement Well-Architected lenses and best practices</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Serverless Applications Lens</li>
+                                <li>SaaS Lens for multi-tenant architectures</li>
+                                <li>Machine Learning Lens</li>
+                                <li>Data Analytics Lens</li>
+                                <li>IoT Lens for connected devices</li>
+                                <li>Financial Services Industry Lens</li>
+                            </ul>
+                            
+                            <h5>Task 5.3: Evaluate architectural trade-offs and decisions</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Performance vs. cost trade-offs</li>
+                                <li>Security vs. usability considerations</li>
+                                <li>Consistency vs. availability in distributed systems</li>
+                                <li>Managed services vs. self-managed solutions</li>
+                                <li>Regional vs. global deployment strategies</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">AWS Well-Architected Tool</div>
+                                <div class="service-tag">AWS Trusted Advisor</div>
+                                <div class="service-tag">AWS Config</div>
+                                <div class="service-tag">AWS Systems Manager</div>
+                                <div class="service-tag">AWS Security Hub</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-item">
+                        <div class="domain-header" onclick="toggleDomain(this)">
+                            <h4>Content Domain 6: Generative AI and Agentic Workflows</h4>
+                            <span class="expand-icon">▶</span>
+                        </div>
+                        <div class="domain-content">
+                            <p>Design and implement generative AI solutions and autonomous agent systems that can perform complex tasks and provide intelligent assistance.</p>
+                            
+                            <h5>Task 6.1: Design generative AI solutions for business requirements</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Foundation model capabilities and limitations</li>
+                                <li>Prompt engineering techniques and best practices</li>
+                                <li>Retrieval Augmented Generation (RAG) architectures</li>
+                                <li>Model fine-tuning and customization strategies</li>
+                                <li>Multi-modal AI integration patterns</li>
+                            </ul>
+                            
+                            <h5>Task 6.2: Implement agentic workflows and autonomous systems</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>Agent orchestration and workflow design</li>
+                                <li>Model Context Protocol (MCP) integration</li>
+                                <li>Tool calling and function execution patterns</li>
+                                <li>Memory management for conversational AI</li>
+                                <li>Multi-agent coordination strategies</li>
+                            </ul>
+                            
+                            <h5>Task 6.3: Ensure responsible AI and governance</h5>
+                            <p><strong>Knowledge of:</strong></p>
+                            <ul>
+                                <li>AI safety controls and guardrails</li>
+                                <li>Bias detection and mitigation strategies</li>
+                                <li>Content filtering and moderation</li>
+                                <li>Model evaluation and performance monitoring</li>
+                                <li>Compliance with AI regulations and standards</li>
+                            </ul>
+                            
+                            <h5>AWS Services</h5>
+                            <div class="services-grid">
+                                <div class="service-tag">Amazon Bedrock</div>
+                                <div class="service-tag">Amazon Q</div>
+                                <div class="service-tag">Amazon Titan</div>
+                                <div class="service-tag">AWS Trainium</div>
+                                <div class="service-tag">AWS Inferentia</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category">
+                    <h3>Recommended Reading and Resources</h3>
+                    <p><em>Coming soon...</em></p>
+                </div>
+            </div>
+            
+            <div class="closing-message">
+                <p><strong>It's hard to get to the bottom but big dreams require big commitment</strong></p>
+                <br>
+                <p><strong>Collected with love ❤️ by EB Khiyami</strong></p>
+                <p><a href="https://www.linkedin.com/in/eb-khiyami/" target="_blank">Connect with me on LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDomain(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('expanded');
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('expanded');
+            }
+        }
+        
+        // Optional: Expand first domain by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstDomain = document.querySelector('.domain-header');
+            if (firstDomain) {
+                toggleDomain(firstDomain);
+            }
+        });
+    </script>
+</body>
+</html>
