@@ -184,11 +184,11 @@
         
         .domain-content {
             padding: 0 1.5rem 1.5rem 1.5rem;
-            display: none;
+            display: none !important;
         }
         
         .domain-content.expanded {
-            display: block;
+            display: block !important;
         }
         
         .domain-content h5 {
@@ -661,12 +661,9 @@
             }
         }
         
-        // Optional: Expand first domain by default
+        // All domains closed by default
         document.addEventListener('DOMContentLoaded', function() {
-            const firstDomain = document.querySelector('.domain-header');
-            if (firstDomain) {
-                toggleDomain(firstDomain);
-            }
+            // No auto-expansion - all domains start closed
         });
     </script>
 </body>

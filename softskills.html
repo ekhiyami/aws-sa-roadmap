@@ -184,11 +184,11 @@
         
         .skill-content {
             padding: 0 1.5rem 1.5rem 1.5rem;
-            display: none;
+            display: none !important;
         }
         
         .skill-content.expanded {
-            display: block;
+            display: block !important;
         }
         
         .skill-content h5 {
@@ -1016,12 +1016,22 @@
             }
         }
         
-        // Optional: Expand first skill by default
+        // All skills closed by default - v3
         document.addEventListener('DOMContentLoaded', function() {
-            const firstSkill = document.querySelector('.skill-header');
-            if (firstSkill) {
-                toggleSkill(firstSkill);
-            }
+            // Ensure all content is closed with delay
+            setTimeout(function() {
+                const allContent = document.querySelectorAll('.skill-content');
+                const allIcons = document.querySelectorAll('.expand-icon');
+                
+                allContent.forEach(content => {
+                    content.classList.remove('expanded');
+                    content.style.display = 'none';
+                });
+                
+                allIcons.forEach(icon => {
+                    icon.classList.remove('expanded');
+                });
+            }, 100);
         });
     </script>
 </body>

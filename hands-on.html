@@ -250,11 +250,11 @@
         
         .workshop-content {
             padding: 0 1.5rem 1.5rem 1.5rem;
-            display: none;
+            display: none !important;
         }
         
         .workshop-content.expanded {
-            display: block;
+            display: block !important;
         }
         
         .workshop-content h5 {
@@ -685,12 +685,19 @@
             }
         }
         
-        // Optional: Expand first workshop by default
+        // All workshops closed by default - v2
         document.addEventListener('DOMContentLoaded', function() {
-            const firstWorkshop = document.querySelector('.workshop-header');
-            if (firstWorkshop) {
-                toggleWorkshop(firstWorkshop);
-            }
+            // Ensure all content is closed
+            const allContent = document.querySelectorAll('.workshop-content');
+            const allIcons = document.querySelectorAll('.expand-icon');
+            
+            allContent.forEach(content => {
+                content.classList.remove('expanded');
+            });
+            
+            allIcons.forEach(icon => {
+                icon.classList.remove('expanded');
+            });
         });
     </script>
 </body>
